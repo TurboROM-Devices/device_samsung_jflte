@@ -143,10 +143,14 @@ on enable-low-power
 
     write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
 
+<<<<<<< HEAD
     write /dev/cpuctl/cpu.notify_on_migrate 1
 
     rm /data/system/perfd/default_values
     start mpdecision
+=======
+    write /sys/devices/platform/msm_sdcc.3/idle_timeout 10
+>>>>>>> 2edf9ee... jf: init: Raise SDCC idle timeout value to 10 seconds
 
 on boot
     trigger enable-low-power
