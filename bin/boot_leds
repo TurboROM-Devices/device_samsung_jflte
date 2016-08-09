@@ -1,0 +1,109 @@
+#!/system/bin/sh
+# Make LEDs display Google's logo colors
+# Inspiration taken from JDCTeam's dancing_led
+# Source: https://github.com/JDCTeam/android_vendor_jdc/blob/opt-cm-12.1/prebuilt/common/bin/dancing_led
+
+LOGCAT="log -p i -t google_colors_led"
+LOG=/data/local/logs/google_colors_led.log
+
+function RGB() {
+	echo $1 > /sys/class/leds/led_r/brightness
+	echo $2 > /sys/class/leds/led_g/brightness
+	echo $3 > /sys/class/leds/led_b/brightness
+
+	sleep 0.07
+}
+
+# Google Logo colors: B R Y B G R
+function BLUE_FADE() {
+	RGB 1 0 5
+	RGB 2 6 10
+	RGB 3 9 15
+	RGB 4 12 20
+	RGB 5 15 25
+	RGB 6 18 30
+	RGB 7 20 35
+	RGB 8 21 40 # BLUE
+	RGB 7 20 35
+	RGB 6 18 30
+	RGB 5 15 25
+	RGB 4 12 20
+	RGB 3 9 15
+	RGB 2 6 10
+	RGB 1 0 5
+}
+
+function GREEN_FADE() {
+	RGB 0 3 0
+	RGB 0 6 0
+	RGB 1 9 0
+	RGB 2 12 0
+	RGB 3 16 0
+	RGB 4 20 0
+	RGB 5 24 0
+	RGB 6 28 0 # GREEN
+	RGB 5 24 0
+	RGB 4 20 0
+	RGB 3 16 0
+	RGB 2 12 0
+	RGB 1 9 0
+	RGB 0 6 0
+	RGB 0 3 0
+}
+
+function RED_FADE() {
+	RGB 5 0 0
+	RGB 10 0 0
+	RGB 15 0 0
+	RGB 20 0 0
+	RGB 25 1 0
+	RGB 30 1 0
+	RGB 35 1 0
+	RGB 40 1 0 # RED
+	RGB 35 1 0
+	RGB 30 1 0
+	RGB 25 1 0
+	RGB 20 0 0
+	RGB 15 0 0
+	RGB 10 0 0
+	RGB 5 0 0
+}
+
+function YELLOW_FADE() {
+	RGB 5 3 0
+	RGB 10 6 0
+	RGB 15 9 0
+	RGB 20 12 0
+	RGB 25 16 0
+	RGB 30 20 0
+	RGB 35 24 0
+	RGB 40 29 0 # YELLOW
+	RGB 35 24 0
+	RGB 30 20 0
+	RGB 25 16 0
+	RGB 20 12 0
+	RGB 15 9 0
+	RGB 10 6 0
+	RGB 5 3 0
+}
+
+STEP=0
+
+while :; do
+	# To check if boot is complete
+	BOOT=$(getprop sys.boot_completed | grep "1")
+    	if [ "$BOOT" == "1" ]; then
+		RGB 0 0 0
+        	exit 0
+	else
+		STEP=$((STEP+1))
+		case "$STEP" in
+			1) BLUE_FADE;;
+			2) GREEN_FADE;;
+			3) RED_FADE;;
+			4) YELLOW_FADE; STEP=0;;
+		esac
+
+	fi
+done
+
