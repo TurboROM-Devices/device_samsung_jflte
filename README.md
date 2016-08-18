@@ -1,6 +1,6 @@
 # Copyright (C) 2016 The Turbo Project
 
-AOSP device configuration for **unified variants**:
+Device configuration for **unified variants**:
 - *GT-I9505*
 - *GT-I9505G*
 - *GT-I9507*
