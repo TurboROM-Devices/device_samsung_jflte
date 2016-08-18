@@ -1,8 +1,4 @@
-==============
-The Android Open Source Project - Galaxy S4
---------------
-
-# Copyright (C) 2016 The JDCTeam
+# Copyright (C) 2016 The Turbo Project
 
 AOSP device configuration for **unified variants**:
 - *GT-I9505*

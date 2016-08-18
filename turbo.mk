@@ -1,5 +1,5 @@
 # Copyright (C) 2011 The Android Open Source Project
-# Copyright (C) 2016 The JDCTeam
+# Copyright (C) 2016 The Turbo Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,8 +25,8 @@
 # Inherit from jflte device
 $(call inherit-product, device/samsung/jflte/full_jflte.mk)
 
-# Inherit our stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common CM stuff.
+$(call inherit-product, vendor/turbo/config/common_full_phone.mk)
 
-PRODUCT_NAME := aosp_jflte
+PRODUCT_NAME := turbo_jflte
   
