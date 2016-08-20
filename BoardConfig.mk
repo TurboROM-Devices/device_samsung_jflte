@@ -128,6 +128,7 @@ TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/releasetools
+
 # RIL
 BOARD_RIL_CLASS := ../../../$(COMMON_PATH)/ril
 
