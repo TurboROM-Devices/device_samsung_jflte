@@ -28,10 +28,12 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <cutils/properties.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
 
 #include "vendor_init.h"
-#include "property_service.h"
 #include "log.h"
 #include "util.h"
 
@@ -46,11 +48,11 @@ void vendor_load_properties()
     char device[PROP_VALUE_MAX];
     int rc;
 
-    rc = property_get("ro.board.platform", platform);
+    rc = property_get("ro.board.platform", platform, NULL);
     if (!rc || strncmp(platform, ANDROID_TARGET, PROP_VALUE_MAX))
         return;
 
-    property_get("ro.bootloader", bootloader);
+    property_get("ro.bootloader", bootloader,NULL);
 
     if (strstr(bootloader, "I337M")) {
         /* jfltecan */
@@ -187,7 +189,7 @@ void vendor_load_properties()
         property_set("ro.product.device", "jactivelte");
     }
 
-    property_get("ro.product.device", device);
+    property_get("ro.product.device", device, NULL);
     ERROR("Found bootloader id %s setting build properties for %s device\n", bootloader, device);
 
 }
