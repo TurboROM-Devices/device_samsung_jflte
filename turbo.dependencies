@@ -1,7 +1,7 @@
 [
   {
-    "remote": "github",
-    "repository": "TurboROM/device_qcom-commom",
+    "remote": "turbo",
+    "repository": "device_qcom-commom",
     "target_path": "device/qcom/common",
     "branch": "m"
   },
