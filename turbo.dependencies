@@ -1,7 +1,7 @@
 [
   {
     "remote": "turbo",
-    "repository": "device_qcom-commom",
+    "repository": "device_qcom_common",
     "target_path": "device/qcom/common",
     "branch": "m"
   },
