@@ -59,9 +59,6 @@ ro.telephony.mms_data_profile=5
 ro.ril.telephony.mqanelements=4
 ro.telephony.ril_class=jflteRIL
 
-# Storage
-ro.sys.sdcardfs=true
-
 # Time
 persist.timed.enable=true
 
