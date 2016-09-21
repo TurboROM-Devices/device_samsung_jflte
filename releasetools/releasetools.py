@@ -36,7 +36,6 @@ def FullOTA_CustomAsserts(info):
   info.script.AppendExtra('delete_recursive("/system/rild");')
 
 def FullOTA_InstallEnd(info):
-  info.script.Mount("/system")
   info.script.AppendExtra('set_metadata("/system/bin/qcks", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mdm_helper_exec:s0");')
   info.script.AppendExtra('set_metadata("/system/bin/ks", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mdm_helper_exec:s0");')
   info.script.AppendExtra('set_metadata("/system/bin/netmgrd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:netmgrd_exec:s0");')
@@ -45,4 +44,3 @@ def FullOTA_InstallEnd(info):
   info.script.script = [cmd for cmd in info.script.script if not "show_progress(0.100000, 0);" in cmd]
   info.script.AppendExtra('package_extract_file("boot.img", "/tmp/boot.img");')
   info.script.AppendExtra('assert(run_program("/sbin/sh", "/tmp/install/etc/loki.sh") == 0);')
-  info.script.Unmount("/system")
