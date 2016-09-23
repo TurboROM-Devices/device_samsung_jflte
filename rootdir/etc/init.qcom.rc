@@ -436,6 +436,9 @@ on property:init.svc.wpa_supplicant=stopped
 on property:sys.qseecomd.enable=true
     start insthk
 
+on property:init.svc.wpa_supplicant=stopped
+    stop dhcpcd
+
 service irsc_util /system/bin/irsc_util "/etc/sec_config"
     class main
     user root
