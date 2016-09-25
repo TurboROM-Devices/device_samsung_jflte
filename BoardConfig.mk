@@ -79,14 +79,6 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 
-# Enable dex pre-optimization to speed up initial boot sequence
-#ifeq ($(HOST_OS),linux)
-#  ifeq ($(WITH_DEXPREOPT),)
-#    WITH_DEXPREOPT := true
-#    WITH_DEXPREOPT_PIC := true
-#  endif
-#endif
-
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
 
