@@ -1,32 +1,32 @@
 [
   {
-    "remote": "turbo",
-    "repository": "device_qcom-commom",
+    "remote": "github",
+    "repository": "Turbo-ROM/device_qcom_common",
     "target_path": "device/qcom/common",
-    "branch": "m"
+    "branch": "n"
   },
   {
     "remote": "github",
     "repository": "TurboROM-Devices/device_samsung_qcom-commom",
     "target_path": "device/samsung/qcom-common",
-    "branch": "mm"
+    "branch": "n"
   },
   {
     "remote": "github",
     "repository": "CyanogenMod/android_kernel_samsung_jf",
     "target_path": "kernel/samsung/jf",
-    "branch": "cm-13.0"
+    "branch": "cm-14.0"
   },
   {
     "remote": "github"
     "repository": "CyanogenMod/android_external_stlport",
     "target_path": "external/stlport"
-    "branch": "cm-13.0"
+    "branch": "cm-14.0"
   },
   {
     "remote": "github",
     "repository": "TheMuppets/proprietary_vendor_samsung",
     "target_path": "vendor/samsung",
-    "branch": "cm-13.0" 
+    "branch": "cm-14.0" 
   }
 ]
